@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Secure Login UI</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<main class="page-shell">
+		<button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode">
+			<i class="fas fa-moon"></i>
+		</button>
+
+		<p class="eyebrow">Secure Login UI</p>
+		<h1 class="page-title">Welcome to your workspace</h1>
+
+		<section class="container" id="container" aria-label="Authentication forms">
+			<div class="form-container sign-up-container">
+				<form action="#" class="auth-form" id="signUpForm" novalidate>
+					<h2>Create account</h2>
+					<p class="form-copy">Start with your email or continue with a social profile.</p>
+
+					<div class="social-container" aria-label="Social registration options">
+						<a href="#" class="social" aria-label="Sign up with Facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="social" aria-label="Sign up with Google"><i class="fab fa-google-plus-g"></i></a>
+						<a href="#" class="social" aria-label="Sign up with LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+
+					<label class="field">
+						<span>Name</span>
+						<input type="text" name="name" placeholder="Amar Dizdar" autocomplete="name" required>
+					</label>
+
+					<label class="field">
+						<span>Email</span>
+						<input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+					</label>
+
+					<label class="field password-field">
+						<span>Password</span>
+						<input type="password" name="password" class="strength-password" placeholder="Minimum 6 characters" autocomplete="new-password" minlength="6" required>
+						<button class="icon-button toggle-password" type="button" aria-label="Show password">
+							<i class="far fa-eye"></i>
+						</button>
+					</label>
+
+					<div class="strength-meter" aria-live="polite">
+						<span class="strength-track"><span class="strength-bar"></span></span>
+						<span class="strength-text">Password strength</span>
+					</div>
+
+					<p class="message" role="status" aria-live="polite"></p>
+					<button class="primary-button" type="submit">Sign Up</button>
+				</form>
+			</div>
+
+			<div class="form-container sign-in-container">
+				<form action="#" class="auth-form" id="signInForm" novalidate>
+					<h2>Sign in</h2>
+					<p class="form-copy">Use your saved account to continue.</p>
+
+					<div class="social-container" aria-label="Social sign in options">
+						<a href="#" class="social" aria-label="Sign in with Facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="social" aria-label="Sign in with Google"><i class="fab fa-google-plus-g"></i></a>
+						<a href="#" class="social" aria-label="Sign in with LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+					</div>
+
+					<label class="field">
+						<span>Email</span>
+						<input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+					</label>
+
+					<label class="field password-field">
+						<span>Password</span>
+						<input type="password" name="password" placeholder="Your password" autocomplete="current-password" minlength="6" required>
+						<button class="icon-button toggle-password" type="button" aria-label="Show password">
+							<i class="far fa-eye"></i>
+						</button>
+					</label>
+
+					<div class="form-row">
+						<label class="remember-option">
+							<input type="checkbox" name="remember">
+							<span>Remember me</span>
+						</label>
+						<button class="text-button forgot-link" type="button" id="forgotPasswordButton">Forgot your password?</button>
+					</div>
+
+					<p class="message" role="status" aria-live="polite"></p>
+					<button class="primary-button" type="submit">Sign In</button>
+				</form>
+			</div>
+
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-panel overlay-left">
+						<h2>Welcome back</h2>
+						<p>Already have an account? Sign in and pick up right where you left off.</p>
+						<button class="ghost" type="button" id="signIn">Sign In</button>
+					</div>
+					<div class="overlay-panel overlay-right">
+						<h2>Hello, friend</h2>
+						<p>Create your account and unlock a cleaner, faster login experience.</p>
+						<button class="ghost" type="button" id="signUp">Sign Up</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="dashboard" id="dashboard" aria-label="User dashboard" hidden>
+			<div class="dashboard-header">
+				<div>
+					<p class="eyebrow dashboard-eyebrow">Signed in</p>
+					<h2>Dashboard</h2>
+				</div>
+				<button class="secondary-button" type="button" id="logoutButton">
+					<i class="fas fa-sign-out-alt"></i>
+					Logout
+				</button>
+			</div>
+
+			<div class="profile-card">
+				<div class="avatar" id="dashboardAvatar">A</div>
+				<div>
+					<p class="profile-label">Active account</p>
+					<h3 id="dashboardName">User</h3>
+					<p id="dashboardEmail">you@example.com</p>
+				</div>
+			</div>
+
+			<div class="dashboard-grid">
+				<article class="stat-card">
+					<i class="fas fa-shield-alt"></i>
+					<span>Security</span>
+					<strong>Demo protected</strong>
+				</article>
+				<article class="stat-card">
+					<i class="fas fa-user-check"></i>
+					<span>Status</span>
+					<strong>Account active</strong>
+				</article>
+				<article class="stat-card">
+					<i class="fas fa-adjust"></i>
+					<span>Theme</span>
+					<strong id="dashboardTheme">Light mode</strong>
+				</article>
+			</div>
+
+			<div class="dashboard-actions">
+				<button class="danger-button" type="button" id="clearAccountButton">
+					<i class="fas fa-trash-alt"></i>
+					Clear demo account
+				</button>
+				<p id="dashboardMessage" class="dashboard-message" role="status" aria-live="polite"></p>
+			</div>
+		</section>
+
+		<div class="modal-backdrop" id="resetModal" hidden>
+			<div class="modal" role="dialog" aria-modal="true" aria-labelledby="resetTitle">
+				<button class="modal-close" type="button" id="closeResetModal" aria-label="Close reset password modal">
+					<i class="fas fa-times"></i>
+				</button>
+				<h2 id="resetTitle">Reset password</h2>
+				<p>Enter the email used for this demo account. We will show a safe preview message.</p>
+				<form id="resetForm" novalidate>
+					<label class="field">
+						<span>Email</span>
+						<input type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+					</label>
+					<p class="message" role="status" aria-live="polite"></p>
+					<button class="primary-button" type="submit">Send Reset Link</button>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<script src="./script.js"></script>
+</body>
+</html>
